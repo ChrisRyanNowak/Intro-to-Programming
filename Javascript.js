@@ -9,19 +9,18 @@ startButton.addEventListener("click", function(){
   var timeleft = 10;
 downloadTimer = setInterval(function(){
   console.log(timeleft);
+  //hides gif when start button is pressed
   if(timeleft > 0){
     document.getElementById("rocket").style.display="none";
   }
   //number to stop countdown at
-  if((timeleft > 0) && (timeleft < 5 )){
-    document.getElementById("countdown").innerHTML = "Warning Less than ½ way to launch, time left = " + timeleft;
-  }
   if(timeleft <= 0){
     clearInterval(downloadTimer);
     //adds id countdown and what text and gif to display during and after countdown ends
     document.getElementById("countdown").innerHTML = "BLAST OFF";
     document.getElementById("rocket").style.display="block";
   }
+  //checks if countdown is above 0 and below 5 and if statement is true then it will display text
   else if((timeleft > 0) && (timeleft < 5 )){
     document.getElementById("countdown").innerHTML = "Warning Less than ½ way to launch, time left = " + timeleft;
   }
