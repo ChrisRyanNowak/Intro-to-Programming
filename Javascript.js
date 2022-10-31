@@ -9,13 +9,23 @@ startButton.addEventListener("click", function(){
   var timeleft = 10;
 downloadTimer = setInterval(function(){
   console.log(timeleft);
+  if(timeleft > 0){
+    document.getElementById("rocket").style.display="none";
+  }
   //number to stop countdown at
+  if((timeleft > 0) && (timeleft < 5 )){
+    document.getElementById("countdown").innerHTML = "Warning Less than ½ way to launch, time left = " + timeleft;
+  }
   if(timeleft <= 0){
     clearInterval(downloadTimer);
     //adds id countdown and what text and gif to display during and after countdown ends
     document.getElementById("countdown").innerHTML = "BLAST OFF";
     document.getElementById("rocket").style.display="block";
-  } else {
+  }
+  else if((timeleft > 0) && (timeleft < 5 )){
+    document.getElementById("countdown").innerHTML = "Warning Less than ½ way to launch, time left = " + timeleft;
+  }
+  else {
     document.getElementById("countdown").innerHTML = timeleft + " seconds";
   }
   timeleft -= 1;
