@@ -1,5 +1,19 @@
 {//Shows what will be written in the alert pop up
-alert("Welcome to the UAT Mission 3 Space program Website");
+  //variable made from data in URL
+  var params = new URLSearchParams(document.location.search);
+  //Identifies firsName as letter f in URL
+  var firstName = decodeURIComponent(params.get("f"));
+  //auto capitalizes first lettet in firstName
+  firstName = firstName[0].toUpperCase() + firstName.substring(1);
+  //Identifies lastName as letter l in URL
+  var lastName = decodeURIComponent(params.get("l"));
+  //auto capitalizes first lettet in lastName
+  lastName = lastName[0].toUpperCase() + lastName.substring(1);
+  //Identifies badgeNum as letter b in URL
+  var badgeNum = decodeURIComponent(params.get("b"));
+
+  //alerts full name and badge number that was typed into fields of login page
+alert("Welcome, "+firstName+" "+lastName+" Badge: "+badgeNum+" to the UAT Mission 3 Space Program Website");
 //Funtion of countdown and start and stop buttons
 var startButton = document.getElementById("startCountdown");
 var downloadTimer = null;

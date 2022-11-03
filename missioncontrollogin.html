@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--links to javascript file-->
+    <script src="missioncontrollogin.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Mission 3 Login</title>
+    <!--links to css file-->
+    <link rel="stylesheet" href="missioncontrollogin.css">
+</head>
+<body>
+    <!--largest font header-->
+    <h1>
+        Login to UAT Mission 3
+    </h1>
+    <!--adds paragraph with id-->
+    <p id = "loginStatus">Login Status</p>
+    <!--adds form with id-->
+    <form id ="creditSubmit" onsubmit="return false">
+        <!--adds input field for text-->
+        First Name: <input type= "text" id= "firstName"/>
+        <!--moves to next line-->
+        <br>
+        Last Name: <input type= "text" id= "lastName"/>
+        <br>
+        <!--adds input field for numbers-->
+        Badge Number: <input type= "number" id= "badgeNum"/>
+        <br>
+        <!--adds submit button that calls to javascript function-->
+        <input type= "submit" onclick = "checkCreds()" />
+    </form>
+
+</body>
+</html>
