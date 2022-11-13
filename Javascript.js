@@ -1,3 +1,30 @@
+
+var audio = null;
+//creates funtion for button onclick 
+function disablefirstbutton() {
+  //disables start button and enables stop button
+  document.getElementById("startCountdown").disabled = true;
+  document.getElementById("endCountdown").disabled = false;
+}
+//creates funtion for button onclick 
+function disablesecondbutton() {
+  //disables stop button and enables start button
+  document.getElementById("endCountdown").disabled = true;
+  document.getElementById("startCountdown").disabled = false;
+}
+//creates audio play and stop function and defines a parameter for when to start and stop audio
+function myPlay(stopOrStart =0) {
+  if(stopOrStart ==0)
+  {
+  audio = new Audio("countdownaudio.wav");
+  audio.play();
+}
+  else if( stopOrStart ==1)
+  {
+  audio.pause();
+  }
+}
+
 {//Shows what will be written in the alert pop up
   //variable made from data in URL
   var params = new URLSearchParams(document.location.search);
@@ -19,6 +46,12 @@ var startButton = document.getElementById("startCountdown");
 var downloadTimer = null;
 //waits to run commands until the buttons are clicked on
 startButton.addEventListener("click", function(){
+  //calls to disablefirstbutton function
+  disablefirstbutton();
+  //sets a delay of 510ms until functions activates
+  setTimeout(function(){
+    myPlay(0);
+  },510);
   //starting number of countdown and that it is time left
   var timeleft = 10;
 downloadTimer = setInterval(function(){
@@ -29,6 +62,7 @@ downloadTimer = setInterval(function(){
   }
   //number to stop countdown at
   if(timeleft <= 0){
+    disablesecondbutton();
     clearInterval(downloadTimer);
     //adds id countdown and what text and gif to display during and after countdown ends
     document.getElementById("countdown").innerHTML = "BLAST OFF";
@@ -47,6 +81,9 @@ downloadTimer = setInterval(function(){
 //to stop countdown and display text that countdown has been stopped 
 var stopButton = document.getElementById("endCountdown");
 stopButton.onclick = function(){
+  //calls my play function to stop audio
+  myPlay(1);
+disablesecondbutton();
 //referencing id for stop button function
 document.getElementById("countdown").innerHTML = "Countdown stopped!";
 clearInterval(downloadTimer);
